@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <style>
+    body{
+      font-family: 'Roboto Mono', monospace;
+      color: #028cf7;
+      background-color: #c9f0ff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .center{
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    #text{
+      font-size: 2.5em;
+      font-weight: bold;
+      padding: 20px;
+      margin-top: 10%;
+    }
+    #clock{
+      font-size: 2em;
+      padding: 1%;
+      color: #ffffff;
+      text-shadow: 1px 1px black;
+    }
+    #watto{
+      height: 50%;
+      width: 50%;
+      background-image: url("watto.PNG");
+      background-size: contain;
+      background-position: top;
+      background-repeat: no-repeat;
+      position: fixed;
+      bottom: 10%;
+      padding-left: 50%;
+    }
+    .selected{
+      color: #028cf7;
+    }
+    .notselected{
+      color: #adbabf;
+    }
+    #buttons{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+    #buttons a{
+      text-decoration: none;
+    }
+    </style>
+    <title>Waterbot</title>
+  </head>
+  <body>
+    <div id="text" class="center">Waterbot</div>
+    <div id="clock" class="center">
+    </div>
+    <div id="watto">
+    </div>
+    <div id="buttons">
+      <a id="testmode" class="selected" href="#">Test Mode</a>
+      <a id="realmode" class="notselected" href="#">Real Time</a>
+    </div>
+  </body>
+  <script>
+  window.onload=runClock();
+  var testmode = true;
+  window.onload=drinkTimer();
+  $("#realmode").on("click", function() {
+    if (testmode == true){
+      $("#realmode").removeClass("notselected");
+      $("#realmode").addClass("selected");
+      $("#testmode").removeClass("selected");
+      $("#testmode").addClass("notselected");
+      testmode = false;
+    }
+    else{
+      return;
+    }
+  });
+  $("#testmode").on("click", function() {
+    if (testmode == false){
+      $("#testmode").addClass("selected");
+      $("#testmode").removeClass("notselected");
+      $("#realmode").removeClass("selected");
+      $("#realmode").addClass("notselected");
+      testmode = true;
+    }
+    else{
+      return;
+    }
+  });
+  function runClock() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = minSec(m);
+  s = minSec(s);
+  document.getElementById('clock').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(runClock, 500);
+  }
+  function minSec(i) {
+  if (i < 10) {
+    i = "0" + i;
+    return i;
+  }
+  else{
+    return i;
+    }
+  }
+  function drinkTimer(){
+    window.alert("Drink some water!");
+    if (testmode == true){
+      var t = setTimeout(drinkTimer, 5000);
+    }
+    else{
+      var t = setTimeout(drinkTimer, 180000);
+    }
+  }
+  </script>
+</html>
