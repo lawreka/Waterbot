@@ -44,21 +44,12 @@
       bottom: 10%;
       padding-left: 50%;
     }
-    .selected{
-      color: #028cf7;
-    }
-    .notselected{
-      color: #adbabf;
-    }
-    #buttons{
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: 10px;
-    }
-    #buttons a{
+    /*#start{
+      color: #ffffff;
       text-decoration: none;
-    }
+      cursor: pointer;
+    }*/
+
     </style>
     <title>Waterbot</title>
   </head>
@@ -68,39 +59,45 @@
     </div>
     <div id="watto">
     </div>
-    <div id="buttons">
+    <!-- <div class="center">
+      <a href="#" id="start">Start</a>
+    </div> -->
+    <!-- <div id="buttons">
       <a id="testmode" class="selected" href="#">Test Mode</a>
       <a id="realmode" class="notselected" href="#">Real Time</a>
-    </div>
+    </div> -->
   </body>
   <script>
   window.onload=runClock();
-  var testmode = true;
   window.onload=drinkTimer();
-  $("#realmode").on("click", function() {
-    if (testmode == true){
-      $("#realmode").removeClass("notselected");
-      $("#realmode").addClass("selected");
-      $("#testmode").removeClass("selected");
-      $("#testmode").addClass("notselected");
-      testmode = false;
-    }
-    else{
-      return;
-    }
-  });
-  $("#testmode").on("click", function() {
-    if (testmode == false){
-      $("#testmode").addClass("selected");
-      $("#testmode").removeClass("notselected");
-      $("#realmode").removeClass("selected");
-      $("#realmode").addClass("notselected");
-      testmode = true;
-    }
-    else{
-      return;
-    }
-  });
+  // var testmode = true;
+  // $("#start").on("click", function(){
+  //   drinkTimer();
+  // });
+  // $("#realmode").on("click", function() {
+  //   if (testmode == true){
+  //     $("#realmode").removeClass("notselected");
+  //     $("#realmode").addClass("selected");
+  //     $("#testmode").removeClass("selected");
+  //     $("#testmode").addClass("notselected");
+  //     testmode = false;
+  //   }
+  //   else{
+  //     return;
+  //   }
+  // });
+  // $("#testmode").on("click", function() {
+  //   if (testmode == false){
+  //     $("#testmode").addClass("selected");
+  //     $("#testmode").removeClass("notselected");
+  //     $("#realmode").removeClass("selected");
+  //     $("#realmode").addClass("notselected");
+  //     testmode = true;
+  //   }
+  //   else{
+  //     return;
+  //   }
+  // });
   function runClock() {
   var today = new Date();
   var h = today.getHours();
@@ -123,12 +120,12 @@
   }
   function drinkTimer(){
     window.alert("Drink some water!");
-    if (testmode == true){
-      var t = setTimeout(drinkTimer, 5000);
-    }
-    else{
+    // if (testmode == true){
+    //   var t = setTimeout(drinkTimer, 5000);
+    // }
+    // else{
       var t = setTimeout(drinkTimer, 180000);
-    }
+    // }
   }
   </script>
 </html>
