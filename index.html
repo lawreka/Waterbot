@@ -2,90 +2,30 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/dropemoji.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="h20botto.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <style>
-    body{
-      font-family: 'Roboto Mono', monospace;
-      color: #028cf7;
-      background-color: #c9f0ff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .center{
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    #text{
-      font-size: 2.5em;
-      font-weight: bold;
-      padding: 20px;
-      margin-top: 10%;
-    }
-    #clock{
-      font-size: 2em;
-      padding: 1%;
-      color: #ffffff;
-      text-shadow: 1px 1px black;
-    }
-    #watto{
-      height: 50%;
-      width: 50%;
-      background-image: url("watto.PNG");
-      background-size: contain;
-      background-position: top;
-      background-repeat: no-repeat;
-      position: fixed;
-      bottom: 10%;
-      padding-left: 50%;
-    }
-    /*#start{
-      color: #ffffff;
-      text-decoration: none;
-      cursor: pointer;
-    }*/
-
-    </style>
-    <title>Waterbot</title>
+    <title>WATERB0TT0</title>
   </head>
   <body>
-    <div id="text" class="center">Waterbot</div>
-    <div id="clock" class="center">
+    <div id="header-container">
+      <div id="title">WATERB0TT0</div>
+      <div id="clock"></div>
     </div>
-    <div id="watto">
+    <div id="timeselect">Remind me to drink water every
+      <select id="times">
+        <option value="30">30 minutes</option>
+        <option value="1">1 hour</option>
+        <option value="1.5">1.5 hours</option>
+        <option value="2">2 hours</option>
+      </select>
     </div>
+    <div id="start">
+      <button id="startbutton">START</button>
+    </div>
+    <div id="watto"></div>
+    <div id="me"><a href="http://kathrynisabelle.com">KIL</a></div>
   </body>
-  <script>
-  window.onload=runClock();
-  window.onload=drinkTimer();
-  function runClock() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = minSec(m);
-  s = minSec(s);
-  document.getElementById('clock').innerHTML =
-  h + ":" + m + ":" + s;
-  var t = setTimeout(runClock, 500);
-  }
-  function minSec(i) {
-  if (i < 10) {
-    i = "0" + i;
-    return i;
-  }
-  else{
-    return i;
-    }
-  }
-  function drinkTimer(){
-    window.alert("Drink some water!");
-      var t = setTimeout(drinkTimer, 1800000);
-  }
-  </script>
+  <script src="h20botto.js"></script>
 </html>
